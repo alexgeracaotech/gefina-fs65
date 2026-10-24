@@ -5,6 +5,11 @@
     "author": "Alex Bessa",
     "type": "module",
     "scripts": {
-        "dev": "node --watch ./server.ts"
+        "dev": "node --watch ./server.ts",
+        "check": "tsc"
+    },
+    "devDependencies": {
+        "@types/node": "^26.6.5",
+        "typescript": "^7.0.2"
     }
 }
