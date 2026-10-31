@@ -1,8 +1,8 @@
 {
-    "compilerOptions": {
-        "module": "nodenext",
-        "allowImportingTsExtensions": true,
-        "noEmit": true,
-        "types": ["node"]
-    }
+  "compilerOptions": {
+    "module": "nodenext",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "types": ["node"]
+  }
 }

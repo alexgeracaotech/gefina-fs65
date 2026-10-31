@@ -1,55 +1,59 @@
 type InvoiceStatus = 'paid' | 'pending';
 
 interface Customer {
-    name: string;
-    email: string;
+  name: string;
+  email: string;
 }
 
 interface Invoice {
-    id: number;
-    amount: number;
-    status: InvoiceStatus;
-    issueDate: string;
-    dueDate: string;
-    customer: Customer;
+  id: number;
+  amount: number;
+  status: InvoiceStatus;
+  issueDate: string;
+  dueDate: string;
+  customer: Customer;
 }
 
-const invoices: Invoice[] = [{
+const invoices: Invoice[] = [
+  {
     id: 1,
     amount: 520354,
     status: 'pending',
     issueDate: '2026-09-10',
     dueDate: '2026-10-15',
     customer: {
-        name: 'Contrutora Meridiano',
-        email: 'comercial@meridiano.com.br'
+      name: 'Contrutora Meridiano',
+      email: 'comercial@meridiano.com.br'
     }
-}, {
+  },
+  {
     id: 2,
     amount: 89600,
     status: 'paid',
     issueDate: '2026-10-01',
     dueDate: '2026-10-31',
     customer: {
-        name: 'Gráfica Nova Vida',
-        email: 'grafica@novavida.com.br'
+      name: 'Gráfica Nova Vida',
+      email: 'grafica@novavida.com.br'
     }
-}, {
+  },
+  {
     id: 3,
     amount: 125037,
     status: 'pending',
     issueDate: '2026-10-12',
     dueDate: '2026-11-17',
     customer: {
-        name: 'Tendi Tudo',
-        email: 'contato@tenditudo.com.br'
+      name: 'Tendi Tudo',
+      email: 'contato@tenditudo.com.br'
     }
-}];
+  }
+];
 
 export function findManyInvoices(): Invoice[] {
-    return invoices;
+  return invoices;
 }
 
 export function findInvoiceById(id: number): Invoice | undefined {
-    return invoices.find(invoice => invoice.id === id);
+  return invoices.find((invoice) => invoice.id === id);
 }
