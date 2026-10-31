@@ -49,3 +49,7 @@ const invoices: Invoice[] = [{
 export function findManyInvoices(): Invoice[] {
     return invoices;
 }
+
+export function findInvoiceById(id: number): Invoice | undefined {
+    return invoices.find(invoice => invoice.id === id);
+}
