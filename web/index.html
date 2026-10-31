@@ -1,0 +1,105 @@
+<!doctype html>
+
+<html lang='pt-BR'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Gefina</title>
+    </head>
+    <body>
+        <div></div>
+
+        <script
+            crossorigin
+            src='https://unpkg.com/react@18/umd/react.development.js'>
+        </script>
+        <script
+            crossorigin
+            src='https://unpkg.com/react-dom@18/umd/react-dom.development.js'>
+        </script>
+        <script
+            crossorigin
+            src='https://unpkg.com/@babel/standalone/babel.min.js'>
+        </script>
+
+        <script type='text/babel'>
+            const container = document.querySelector('div');
+
+            const root = ReactDOM.createRoot(container);
+
+            function InvoiceRow(props) {
+                return <tr>
+                    <td>{props.data.customer.name}</td>
+                    <td>{props.data.amount}</td>
+                    <td>{props.data.issueDate}</td>
+                    <td>{props.data.dueDate}</td>
+                    <td>{props.data.status === 'paid' ? 'Paga' : 'Pendente'}</td>
+                </tr>;
+            }
+
+            function InvoiceTable(props) {
+                return <table>
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Valor</th>
+                            <th>Emissão</th>
+                            <th>Vencimento</th>
+                            <th>Situação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <InvoiceRow data={props.datas[0]} />
+                        <InvoiceRow data={props.datas[1]} />
+                        <InvoiceRow data={props.datas[2]} />
+                    </tbody>
+                </table>;
+            }
+
+            function App() {
+                const invoices = [
+                    {
+                        id: 1,
+                        amount: 520354,
+                        status: 'pending',
+                        issueDate: '2026-09-10',
+                        dueDate: '2026-10-15',
+                        customer: {
+                            name: 'Contrutora Meridiano',
+                            email: 'comercial@meridiano.com.br'
+                        }
+                    },
+                    {
+                        id: 2,
+                        amount: 89600,
+                        status: 'paid',
+                        issueDate: '2026-10-01',
+                        dueDate: '2026-10-31',
+                        customer: {
+                            name: 'Gráfica Nova Vida',
+                            email: 'grafica@novavida.com.br'
+                        }
+                    },
+                    {
+                        id: 3,
+                        amount: 125037,
+                        status: 'pending',
+                        issueDate: '2026-10-12',
+                        dueDate: '2026-11-17',
+                        customer: {
+                            name: 'Tendi Tudo',
+                            email: 'contato@tenditudo.com.br'
+                        }
+                    }
+                ];
+
+                return <>
+                    <h1>Faturas</h1>
+
+                    <InvoiceTable datas={invoices} />
+                </>;
+            }
+
+            root.render(<App/>);
+        </script>
+    </body>
+</html>
