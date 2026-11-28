@@ -15,6 +15,8 @@ app.get('/api/health', (_req, res) =>
 
 app.use('/api/invoices', invoiceRouter);
 
+app.use(express.static('../web/dist'));
+
 app.use((_req, res) =>
   res.status(404).json({
     error: {
@@ -24,4 +26,4 @@ app.use((_req, res) =>
   })
 );
 
-app.listen(3000);
+app.listen(process.env.PORT);
