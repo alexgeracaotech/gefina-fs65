@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { findInvoiceById, findManyInvoices } from './invoice.service.ts';
+import { findInvoiceById, findManyInvoices } from '../services/invoice.service.ts';
 
 const router = Router();
 
