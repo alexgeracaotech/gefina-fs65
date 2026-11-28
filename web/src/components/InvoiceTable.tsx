@@ -1,4 +1,4 @@
-import { Invoice } from './invoiceType.ts';
+import { Invoice } from '../types/invoiceType.ts';
 
 import InvoiceRow from './InvoiceRow.tsx';
 
